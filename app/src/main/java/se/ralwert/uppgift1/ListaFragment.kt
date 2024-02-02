@@ -5,15 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import se.ralwert.uppgift1.databinding.FragmentStartBinding
+import se.ralwert.uppgift1.databinding.FragmentCalcBinding
+import se.ralwert.uppgift1.databinding.FragmentListaBinding
 
-//
-class StartFragment : Fragment() {
+class ListaFragment : Fragment() {
 
-    private var _binding: FragmentStartBinding? = null
+    private var _binding: FragmentListaBinding? = null
     private  val binding get() = _binding!!
 
-
+     var resultnumb = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -26,30 +26,20 @@ class StartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-      //  return inflater.inflate(R.layout.fragment_start, container, false)
-        _binding = FragmentStartBinding.inflate(inflater,container,false)
+        _binding = FragmentListaBinding.inflate(inflater,container,false)
         val view = binding.root
-        return view
-    }
+        return view    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.Changetextbutton.setOnClickListener {
-            binding.WelcomeText.text = "Goodbye "
-        }
 
-        binding.NavCalc.setOnClickListener {
-            var gocalc = CalcFragment()
-            requireActivity().supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragcon,gocalc)
-                .addToBackStack(null)
-                .commit()
+        binding.Calresult.text = resultnumb.toString()
 
-        }
+
     }
 }
