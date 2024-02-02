@@ -39,7 +39,7 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.Changetextbutton.setOnClickListener {
-            binding.WelcomeText.text = "Goodbye"
+            binding.WelcomeText.text = "Goodbye "
         }
     }
 }
